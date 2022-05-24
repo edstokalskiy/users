@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'users',
+    title: 'Users Nuxt',
     htmlAttrs: {
       lang: 'en'
     },
@@ -36,6 +36,7 @@ export default {
     dirs: [
       '~/components',
       '~/components/partials',
+      '~/components/main',
     ]
   },
 

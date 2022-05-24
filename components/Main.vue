@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<div class="wrapper">
-			Main
+			<Users />
 		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'Main'
+		name: 'Main',
 	}
 </script>
 

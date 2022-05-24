@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="wrapper">
-            header
+            Users SPA
         </div>
     </header>
 </template>

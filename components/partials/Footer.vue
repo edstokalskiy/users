@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div class="wrapper">
-            footer
+            Stokalskyi
         </div>
     </footer>
 </template>
@@ -14,5 +14,7 @@ export default {
 </script>
 
 <style lang="sass">
-
+    footer
+        padding: 10px 0
+        text-align: center
 </style>
