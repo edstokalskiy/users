@@ -5,5 +5,7 @@
             <Nuxt />
         </main>
         <Footer />
+        
+        <notifications />
     </div>
 </template>

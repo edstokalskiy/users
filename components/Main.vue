@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div class="wrapper">
-			<Users />
-		</div>
+		<Users />
+
+		<Form />
 	</div>
 </template>
 

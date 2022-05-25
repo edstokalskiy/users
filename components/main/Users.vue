@@ -8,7 +8,7 @@
                         Name
                     </th>
                     <th>
-                        Company name
+                        Email
                     </th>
                     <th>
                         Username
@@ -27,7 +27,7 @@
                         {{user.name}}
                     </td>
                     <td>
-                        {{user.company.name}}
+                        {{user.email}}
                     </td>
                     <td>
                         {{user.username}}
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 
 export default {
     name: 'Users',
@@ -69,6 +69,10 @@ export default {
         }
     },
     methods: {
+        ...mapActions([
+       		'chunkUsers',
+		]),
+
         ...mapMutations([
        		'updateUsers',
             'updateUsersByThree',
@@ -83,32 +87,6 @@ export default {
                 });
         },
 
-        chunkUsers() {
-            let users = this.$store.state.users;
-            let result = [];
-            let size = 3;
-            let chunk = [];
-            let acc = 1;
-            for(let i = 0; i < Object.keys(users).length; i++) {
-                if ( acc == size ) {
-                    chunk.push(users[i]);
-                    result.push(chunk);
-                    chunk = null;
-                    chunk = [];
-                    acc = 1;
-                } else {
-                    chunk.push(users[i]);
-                    acc++;
-                    if ( i == Object.keys(users).length - 1 ) {
-                        result.push(chunk);
-                    }
-                }
-            }
-
-            this.$store.commit('updateUsersByThree', result);
-            
-        },
-
         openUserPage(user) {
             this.$router.push('/user/' + user.id);
         },
@@ -118,7 +96,12 @@ export default {
         },
     },
     mounted() {
-        this.getData();
+        if ( this.$store.state.users == null ) {
+            console.error('users store empty');
+            this.getData();
+        } else {
+            this.chunkUsers();
+        }
     }
 }
 </script>

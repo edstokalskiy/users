@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="wrapper">
-            Users SPA
+            <nuxt-link to="/">Users SPA</nuxt-link>
         </div>
     </header>
 </template>
