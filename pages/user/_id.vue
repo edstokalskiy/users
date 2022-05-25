@@ -39,7 +39,7 @@
                         </div>
                         <div class="user__description-info">
                             <p v-if="!isEditingWebsite">{{ user.website }}</p>
-                            <input v-else type="text" v-model="websiteNew">
+                            <input v-else type="text" v-model="websiteNew" placeholder="New website">
                         </div>
                         <div class="user__description-edit">
                             <svg v-if="!isEditingWebsite" @click="isEditingWebsite = !isEditingWebsite" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -68,7 +68,7 @@
                         </div>
                         <div class="user__description-info">
                             <p v-if="!isEditingPhone">{{user.phone}}</p>
-                            <input v-else type="tel" v-model="phoneNew">
+                            <input v-else type="tel" v-model="phoneNew" placeholder="New phone">
                         </div>
                         <div class="user__description-edit">
                             <svg v-if="!isEditingPhone" @click="isEditingPhone = !isEditingPhone" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -144,7 +144,7 @@ export default {
 
         save(field, data) {
             if ( data == '' ) return false;
-            
+
             let newUsers = structuredClone(this.$store.state.users);
             newUsers.forEach(item => {
                 if (item.id == this.$route.params.id) {
